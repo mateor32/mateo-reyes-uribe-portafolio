@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Paleta — espejo de `theme.extend.colors` en tailwind.config.ts */
+    --color-ink: #14161a; /* texto principal */
+    --color-ink-soft: #3a3d45; /* texto secundario oscuro */
+    --color-muted: #6b7280; /* texto de apoyo */
+    --color-line: #e7e8ec; /* bordes y separadores */
+    --color-surface: #ffffff; /* cards */
+    --color-bg: #f6f7f9; /* fondo general */
+    --color-accent: #4f46e5; /* CTAs, links, progreso, hover */
+    --color-accent-soft: #eef2ff;
+    --color-success: #16a34a; /* estado "disponible" */
+
+    /* Radios del sistema */
+    --radius-card: 0.75rem; /* rounded-xl  → cards */
+    --radius-button: 0.375rem; /* rounded-md  → botones */
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: var(--color-accent-soft);
+    color: var(--color-accent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
