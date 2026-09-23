@@ -1,19 +1,14 @@
-import type { LucideIcon } from "lucide-react";
-
-type LucideModule = typeof import("lucide-react");
-
 /**
- * Nombre en PascalCase de cualquier icono de `lucide-react`
- * (por ejemplo `"Code"`, `"GraduationCap"`, `"Palette"`).
+ * Nombre en PascalCase de un icono de `lucide-react` registrado en
+ * `src/lib/icons.ts` (por ejemplo `"Code"` o `"Palette"`).
  *
- * El tipo se deriva del propio módulo, así que el editor autocompleta los
- * nombres válidos y un error de tipeo se detecta al compilar en vez de
- * acabar en un hueco vacío en la interfaz. Es un tipo puro: no añade nada
- * al bundle.
+ * El tipo se deriva del registro y no de la librería entera, porque importar
+ * lucide-react completo para resolver iconos por nombre impide descartar los
+ * que no se usan. Si necesitas uno que todavía no está, añádelo al registro.
  */
-export type LucideIconName = {
-  [K in keyof LucideModule]: LucideModule[K] extends LucideIcon ? K : never;
-}[keyof LucideModule];
+import type { LucideIconName } from "@/lib/icons";
+
+export type { LucideIconName };
 
 /**
  * Marcas admitidas en los enlaces sociales. Se renderizan con `react-icons`,
