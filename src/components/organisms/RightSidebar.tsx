@@ -26,11 +26,11 @@ export function RightSidebar({ className }: RightSidebarProps) {
   return (
     <aside
       className={cn(
-        "sticky top-0 flex h-screen w-[90px] shrink-0 self-start items-center justify-center border-l border-line bg-surface",
+        "sticky top-0 flex h-screen w-social shrink-0 self-start items-center justify-center border-l border-line bg-surface shadow-sm",
         className,
       )}
     >
-      <nav aria-label="Redes sociales">
+      <nav aria-label="Social links">
         <ul className="flex flex-col items-center gap-4">
           {socialLinks.map((link) => (
             <li key={link.name}>

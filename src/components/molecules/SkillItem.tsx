@@ -2,7 +2,7 @@ import { ProgressBar } from "@/components/atoms/ProgressBar";
 import { cn } from "@/lib/utils";
 
 export interface SkillItemProps {
-  /** Nombre de la destreza: `"Inglés"`, `"TypeScript"`... */
+  /** Nombre de la destreza: `"English"`, `"Java"`... */
   name: string;
   /** Porcentaje de 0 a 100. La barra recorta los valores fuera de rango. */
   level: number;
@@ -15,10 +15,12 @@ export interface SkillItemProps {
  * Nombre, porcentaje y barra de progreso.
  *
  * Sirve igual para idiomas y para lenguajes de programación porque no sabe
- * nada de lo que mide: recibe un nombre y un número. La barra es la que
- * anima el relleno al entrar en pantalla.
+ * nada de lo que mide: recibe un nombre y un número.
  *
- * El porcentaje se escribe como texto visible además de ir en el
+ * El porcentaje va en cifras tabulares y en un gris de apoyo, no al mismo
+ * peso que el nombre: la columna lleva ocho de estas filas y, con las cifras
+ * destacadas, el ojo acaba leyendo una tabla de números en lugar de una lista
+ * de destrezas. Se escribe como texto visible además de ir en el
  * `aria-valuenow` de la barra, de modo que el dato esté disponible aunque las
  * animaciones no lleguen a ejecutarse.
  */
@@ -33,9 +35,11 @@ export function SkillItem({
   return (
     <div className={cn("space-y-2", className)}>
       <div className="flex items-baseline justify-between gap-3">
-        <span className="text-sm font-medium text-ink">{name}</span>
+        <span className="text-sm font-medium tracking-snug text-ink-soft">
+          {name}
+        </span>
         {showPercentage && (
-          <span className="text-xs tabular-nums text-muted">{value}%</span>
+          <span className="text-xs tabular-nums text-muted">{value}</span>
         )}
       </div>
       <ProgressBar level={value} ariaLabel={name} />

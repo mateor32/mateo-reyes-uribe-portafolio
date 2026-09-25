@@ -1,28 +1,27 @@
 import {
-  Accessibility,
   ArrowRight,
   ArrowUpRight,
   Briefcase,
   Calendar,
   Check,
   ChevronDown,
-  Clock,
-  Code,
-  Download,
+  Container,
+  Database,
   ExternalLink,
-  Gauge,
   GitBranch,
+  Globe,
   GraduationCap,
   Lightbulb,
   Mail,
   MapPin,
   Menu,
   MessageSquare,
-  Palette,
   Phone,
-  Smartphone,
+  Server,
+  ShieldCheck,
   Sparkles,
   Users,
+  Workflow,
   X,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
@@ -42,16 +41,16 @@ import type { LucideIcon } from "lucide-react";
  */
 export const LUCIDE_ICONS = {
   // Usados hoy en src/data/
-  Accessibility,
-  Clock,
-  Code,
-  Gauge,
-  GitBranch,
+  Container,
+  Database,
+  Globe,
   Lightbulb,
   MessageSquare,
-  Palette,
-  Smartphone,
+  Server,
+  ShieldCheck,
+  Sparkles,
   Users,
+  Workflow,
   // Iconos de interfaz de uso frecuente
   ArrowRight,
   ArrowUpRight,
@@ -59,14 +58,13 @@ export const LUCIDE_ICONS = {
   Calendar,
   Check,
   ChevronDown,
-  Download,
   ExternalLink,
+  GitBranch,
   GraduationCap,
   Mail,
   MapPin,
   Menu,
   Phone,
-  Sparkles,
   X,
 } satisfies Record<string, LucideIcon>;
 
@@ -77,7 +75,14 @@ export const LUCIDE_ICONS = {
  */
 export type LucideIconName = keyof typeof LUCIDE_ICONS;
 
-/** Devuelve el componente que dibuja el icono indicado. */
-export function getLucideIcon(name: LucideIconName): LucideIcon {
-  return LUCIDE_ICONS[name];
-}
+/*
+ * Para dibujar un icono, léelo del registro directamente:
+ *
+ *     const Icon = LUCIDE_ICONS[nombre];
+ *
+ * Aquí hubo un accesor `getLucideIcon(nombre)`, pero la regla
+ * `react-hooks/static-components` toma el valor devuelto por una función como
+ * un componente creado en cada render y marca error en el punto de uso,
+ * aunque siempre sea la misma referencia constante. El acceso por índice deja
+ * claro que el componente no se está creando.
+ */

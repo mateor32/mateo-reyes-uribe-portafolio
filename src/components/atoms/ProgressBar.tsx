@@ -21,6 +21,10 @@ export interface ProgressBarProps {
 /**
  * Barra de progreso para niveles de idioma o de stack técnico.
  *
+ * Es deliberadamente fina: una columna con ocho barras gruesas se convierte
+ * en un muro de rectángulos de color. Con 5 px, la pista casi desaparece y lo
+ * que se lee es el nombre, que es el dato que importa.
+ *
  * El relleno crece de 0 hasta `level` la primera vez que la barra entra en
  * pantalla (`whileInView` con `once: true`), de modo que la animación se ve
  * al hacer scroll y no se repite al volver a pasar.
@@ -29,7 +33,7 @@ export function ProgressBar({
   level,
   ariaLabel,
   duration = 1.1,
-  thickness = 8,
+  thickness = 5,
   className,
 }: ProgressBarProps) {
   const value = Math.round(Math.min(100, Math.max(0, level)));
@@ -41,15 +45,18 @@ export function ProgressBar({
       aria-valuemin={0}
       aria-valuemax={100}
       aria-label={ariaLabel}
-      className={cn("w-full overflow-hidden rounded-full bg-line", className)}
+      className={cn(
+        "w-full overflow-hidden rounded-full bg-line-soft",
+        className,
+      )}
       style={{ height: thickness }}
     >
       <motion.div
-        className="h-full rounded-full bg-accent"
+        className="h-full rounded-full bg-gradient-to-r from-accent-deep via-accent to-accent-bright shadow-[0_0_10px_rgb(99_102_241/0.6)]"
         initial={{ width: 0 }}
         whileInView={{ width: `${value}%` }}
         viewport={{ once: true, amount: 0.6 }}
-        transition={{ duration, ease: "easeOut" }}
+        transition={{ duration, ease: [0.22, 1, 0.36, 1] }}
       />
     </div>
   );

@@ -9,13 +9,13 @@ import { SectionHeading } from "@/components/atoms/SectionHeading";
 import { SocialIconLink } from "@/components/atoms/SocialIconLink";
 import { Tag } from "@/components/atoms/Tag";
 import { knowledgeItems } from "@/data/knowledge";
-import { educationItems } from "@/data/education";
+import { experienceItems } from "@/data/experience";
 import { extraSkills, profile, programmingSkills, socialLinks } from "@/data/profile";
 
 export default function ProbeAtoms() {
   return (
     <main className="mx-auto max-w-3xl space-y-8 p-10">
-      <SectionHeading title="Ãtomos" subtitle="Banco de pruebas temporal." />
+      <SectionHeading title="Átomos" subtitle="Banco de pruebas temporal." />
       <Divider />
       <div className="flex flex-wrap items-center gap-3">
         <Button>Primario md</Button>
@@ -44,7 +44,7 @@ export default function ProbeAtoms() {
         <IconBadge icon="Check" tone="success" size={64} />
       </div>
       <div className="flex flex-wrap gap-2">
-        {educationItems.map((item) => (
+        {experienceItems.map((item) => (
           <Tag key={item.id} icon="Calendar">
             {item.period}
           </Tag>

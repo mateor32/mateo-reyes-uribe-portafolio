@@ -1,8 +1,5 @@
 import type { PortfolioItem } from "@/types";
 
-// TODO: reemplazar con tu información real.
-// Todos los datos de este archivo son de ejemplo.
-
 // TODO: las imágenes todavía no existen. Coloca un archivo por proyecto en
 // public/images/portfolio/ con el nombre indicado en `imageUrl`, o cambia la
 // ruta. Mientras falten, next/image devolverá 404 en esas cards.
@@ -15,67 +12,45 @@ import type { PortfolioItem } from "@/types";
  */
 export const portfolioItems: PortfolioItem[] = [
   {
-    id: "dashboard-analitica",
-    title: "Panel de Analítica",
+    id: "pos-system",
+    title: "POS — Point of Sale",
     shortDescription:
-      "Dashboard en tiempo real para métricas de producto, con gráficos interactivos.",
+      "Sales, product and inventory management with automatic low-stock alerts.",
     longDescription:
-      "Panel de control construido con Next.js y TypeScript que agrupa las métricas de uso de un producto SaaS. Incluye filtros por rango de fechas, comparación entre periodos y gráficos interactivos renderizados en el cliente. El mayor reto fue mantener la interfaz fluida con series de varios miles de puntos: se resolvió agregando los datos en el servidor y virtualizando las tablas.",
-    imageUrl: "/images/portfolio/panel-analitica.jpg",
-    repoUrl: "https://github.com/tu-usuario/panel-analitica",
-    liveUrl: "https://panel-analitica.vercel.app",
+      "A complete point-of-sale system that cut sales entry time by roughly 60% compared to the manual flow it replaced. The REST API follows a layered architecture — controller, service, repository — which held zero referential integrity errors across tests with more than 500 records. It also ships automatic low-stock alerts that removed inventory gaps in every test scenario.",
+    stack: ["Java", "Spring Boot", "PostgreSQL", "Docker"],
+    imageUrl: "/images/portfolio/pos-system.jpg",
+    repoUrl: "https://github.com/mateor32/pos-system",
   },
   {
-    id: "tienda-online",
-    title: "Tienda Online",
+    id: "fraud-detection",
+    title: "Banking Backend — Fraud Detection",
     shortDescription:
-      "E-commerce con catálogo filtrable, carrito persistente y pasarela de pago.",
+      "Transaction processing with JWT authentication and anomaly detection.",
     longDescription:
-      "Tienda construida sobre Next.js con renderizado estático del catálogo y revalidación incremental. El carrito vive en el almacenamiento local y se sincroniza al iniciar sesión. Se trabajó especialmente el rendimiento de las fichas de producto: imágenes optimizadas, carga diferida y una puntuación de 98 en Lighthouse para móvil.",
-    imageUrl: "/images/portfolio/tienda-online.jpg",
-    repoUrl: "https://github.com/tu-usuario/tienda-online",
-    liveUrl: "https://tienda-demo.vercel.app",
+      "A banking backend covering 100% of the critical flows: registration, login, transfers and history. On top of that sits an anomaly detection module that flags unusual transactions — atypical amounts, unusual frequency — and reduced false negatives across simulated tests. Security follows OWASP practices: bcrypt for password hashing and error handling that never exposes a stack trace.",
+    stack: ["Java", "Spring Boot", "PostgreSQL", "JWT", "Docker"],
+    imageUrl: "/images/portfolio/fraud-detection.jpg",
+    repoUrl: "https://github.com/mateor32/fraude-detection",
   },
   {
-    id: "app-tareas",
-    title: "Gestor de Tareas",
+    id: "ai-voice-tutor",
+    title: "AI Voice Chat — English Tutor",
     shortDescription:
-      "Aplicación de tareas con tableros arrastrables y atajos de teclado.",
+      "Speech recognition and an LLM combined into a real-time conversation tutor.",
     longDescription:
-      "Gestor de tareas estilo kanban con columnas personalizables y reordenamiento mediante arrastrar y soltar. Toda la aplicación es navegable por teclado y compatible con lectores de pantalla, incluidas las operaciones de arrastre, que cuentan con una alternativa accesible basada en atajos.",
-    imageUrl: "/images/portfolio/gestor-tareas.jpg",
-    repoUrl: "https://github.com/tu-usuario/gestor-tareas",
+      "An academic project that pairs speech-to-text with a large language model to hold real-time conversations in English, with average latency under two seconds. The hardest part was the audio pipeline: designing it to cope with accent variation and background noise, which noticeably improved recognition accuracy in controlled environments.",
+    stack: ["TypeScript", "Python", "Speech-to-Text", "LLM API", "Docker"],
+    imageUrl: "/images/portfolio/ai-voice-tutor.jpg",
   },
   {
-    id: "sitio-restaurante",
-    title: "Sitio para Restaurante",
+    id: "department-portal",
+    title: "Systems Engineering Portal",
     shortDescription:
-      "Sitio de una página con carta digital, galería y reservas por WhatsApp.",
+      "The department's public web portal, maintained full-stack in production.",
     longDescription:
-      "Landing de una sola página para un restaurante local, con carta digital navegable por categorías, galería de fotos y un botón de reservas que abre una conversación de WhatsApp con el mensaje precargado. Sin backend: todo el contenido se edita desde archivos de datos, igual que en este portafolio.",
-    imageUrl: "/images/portfolio/sitio-restaurante.jpg",
-    liveUrl: "https://restaurante-demo.vercel.app",
-  },
-  {
-    id: "sistema-diseno",
-    title: "Sistema de Diseño",
-    shortDescription:
-      "Librería de componentes React documentada y publicada como paquete.",
-    longDescription:
-      "Sistema de diseño con más de cuarenta componentes accesibles, tokens de color y tipografía, y documentación interactiva. Se publica como paquete npm privado y se consume desde tres aplicaciones internas, lo que redujo a la mitad el tiempo de arranque de cada nueva pantalla.",
-    imageUrl: "/images/portfolio/sistema-diseno.jpg",
-    repoUrl: "https://github.com/tu-usuario/sistema-diseno",
-    liveUrl: "https://sistema-diseno-docs.vercel.app",
-  },
-  {
-    id: "blog-tecnico",
-    title: "Blog Técnico",
-    shortDescription:
-      "Blog en MDX con búsqueda instantánea y resaltado de sintaxis.",
-    longDescription:
-      "Blog personal escrito en MDX y generado estáticamente. Incluye búsqueda instantánea sobre un índice creado en tiempo de compilación, resaltado de sintaxis en el servidor para no enviar el resaltador al navegador, y feed RSS. Los artículos se escriben como archivos Markdown dentro del repositorio.",
-    imageUrl: "/images/portfolio/blog-tecnico.jpg",
-    repoUrl: "https://github.com/tu-usuario/blog-tecnico",
-    liveUrl: "https://blog-demo.vercel.app",
+      "The public portal of the Systems Engineering department at Universidad de Antioquia, which I maintain as a Programming Assistant. Frontend and backend, with a minimum of two monthly deployments and no reported downtime, version control with Git and deployment environments orchestrated through Docker containers to cut manual configuration time.",
+    stack: ["Full-stack", "Git", "Docker"],
+    imageUrl: "/images/portfolio/department-portal.jpg",
   },
 ];

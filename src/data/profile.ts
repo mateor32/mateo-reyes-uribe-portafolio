@@ -6,49 +6,50 @@ import type {
   SocialLink,
 } from "@/types";
 
-// TODO: reemplazar con tu información real.
-// Todos los datos de este archivo son de ejemplo.
 
-/**
- * Datos de cabecera: alimentan el Hero, el badge de disponibilidad y el modal
- * de biografía.
- */
 export const profile: Profile = {
-  name: "Tu Nombre",
-  role: "Frontend Developer",
+  name: "Mateo Reyes Uribe",
+  role: "Backend Developer",
+  // Palabra del rol que va en accent en el Hero. Tiene que estar dentro de `role`.
+  roleHighlight: "Backend",
   // "available" pinta el badge en verde (--color-success); "busy" lo atenúa.
   status: "available",
-  age: 26,
+  email: "mateoreyes0723@gmail.com",
+ 
+  phone: "+57 310 641 9162",
   residence: "Medellín, Colombia",
-  // TODO: el portafolio es público. Considera dejar solo ciudad y país,
-  // o un correo de contacto, en lugar de una dirección exacta.
-  address: "Calle 10 #43-25, El Poblado",
-  // TODO: colocar la imagen real en public/images/avatar.jpg
-  avatarUrl: "/images/avatar.jpg",
+  studies: "Systems Engineering",
+  availability: "Internship 2027-1",
+  avatarUrl: "/images/avatar.png",
   heroDescription:
-    "Construyo interfaces web rápidas y accesibles con React, Next.js y TypeScript. Me interesa el detalle: que una pantalla se sienta clara, responda al instante y funcione para cualquiera.",
+    "Systems Engineering student at Universidad de Antioquia, building backend services with Java, Spring Boot and PostgreSQL. I care about APIs that stay readable as they grow, data that keeps its integrity, and deployments that don't need babysitting.",
   bioLong:
-    "Soy desarrollador frontend con cuatro años construyendo productos para web. Empecé maquetando sitios institucionales y hoy me dedico sobre todo a diseñar y mantener interfaces con React, Next.js y TypeScript, cuidando el rendimiento y la accesibilidad desde el primer commit.\n\nMe gusta trabajar cerca de diseño: traducir un Figma a un sistema de componentes reutilizable, discutir estados y casos límite antes de escribir código, y dejar una base que el siguiente desarrollador entienda sin tener que preguntar. He acompañado migraciones de CRA a Next.js, reducido tiempos de carga a la mitad y montado sistemas de diseño desde cero.\n\nFuera del trabajo escribo sobre patrones de frontend, contribuyo a algún proyecto open source y aprovecho cualquier excusa para trastear con animaciones e interacción.",
+    "I'm a Systems Engineering student at Universidad de Antioquia, currently in my eighth semester and looking for a professional internship for the first half of 2027. Most of my hands-on work is backend: REST APIs in Java and Spring Boot, relational modelling in PostgreSQL, and containerised environments with Docker.\n\nSince June 2025 I've worked as a Programming Assistant at the university, maintaining the Systems Engineering department portal end to end — frontend and backend — with at least two clean deployments a month. I handle change requests from the academic team directly in production, orchestrate the deployment environments with Docker, and support the department's network infrastructure.\n\nOn my own time I build projects that force me to get the fundamentals right: a point-of-sale system, a banking backend with JWT authentication and anomaly detection, and a voice tutor that pairs speech recognition with an LLM. I work comfortably with Scrum and Kanban, and I'm looking for a hybrid role where I can keep shipping.",
 };
 
 /**
- * Idiomas. `level` es un porcentaje de 0 a 100 usado por las barras de progreso.
+ * Idiomas. `level` es un porcentaje de 0 a 100 usado por las barras de
+ * progreso; B1 corresponde a un nivel intermedio, de ahí el 55.
  */
 export const languages: LanguageSkill[] = [
-  { name: "Español (nativo)", level: 100 },
-  { name: "Inglés", level: 85 },
-  { name: "Portugués", level: 45 },
+  { name: "Spanish (native)", level: 100 },
+  { name: "English (B1)", level: 55 },
 ];
 
 /**
  * Stack técnico. `level` es un porcentaje de 0 a 100.
+ *
+ * TODO: los porcentajes son una estimación a partir del peso que cada
+ * tecnología tiene en tu hoja de vida. Ajústalos: es el único dato de este
+ * archivo que no sale literal del currículum.
  */
 export const programmingSkills: ProgrammingSkill[] = [
-  { name: "HTML & CSS", level: 95 },
-  { name: "JavaScript", level: 92 },
-  { name: "TypeScript", level: 88 },
-  { name: "React / Next.js", level: 90 },
-  { name: "Node.js", level: 65 },
+  { name: "Java", level: 90 },
+  { name: "SQL", level: 85 },
+  { name: "TypeScript", level: 75 },
+  { name: "JavaScript", level: 75 },
+  { name: "Python", level: 65 },
+  { name: ".NET", level: 35 },
 ];
 
 /**
@@ -56,27 +57,20 @@ export const programmingSkills: ProgrammingSkill[] = [
  * el editor autocompleta los válidos y TypeScript rechaza los inexistentes.
  */
 export const extraSkills: ExtraSkill[] = [
-  { label: "Trabajo en equipo", icon: "Users" },
-  { label: "Comunicación clara", icon: "MessageSquare" },
-  { label: "Resolución de problemas", icon: "Lightbulb" },
-  { label: "Gestión del tiempo", icon: "Clock" },
+  { label: "Problem solving", icon: "Lightbulb" },
+  { label: "Agile teamwork", icon: "Users" },
+  { label: "Fast learner", icon: "Sparkles" },
+  { label: "Clear communication", icon: "MessageSquare" },
 ];
 
 /**
  * Enlaces sociales. `icon` identifica la marca; se renderizan con react-icons.
- * Basta con borrar las entradas que no uses.
  */
 export const socialLinks: SocialLink[] = [
-  { name: "GitHub", url: "https://github.com/tu-usuario", icon: "github" },
+  { name: "GitHub", url: "https://github.com/mateor32", icon: "github" },
   {
     name: "LinkedIn",
-    url: "https://www.linkedin.com/in/tu-usuario",
+    url: "https://www.linkedin.com/in/mateo-reyes-uribe",
     icon: "linkedin",
-  },
-  { name: "Twitter", url: "https://twitter.com/tu-usuario", icon: "twitter" },
-  {
-    name: "Instagram",
-    url: "https://www.instagram.com/tu-usuario",
-    icon: "instagram",
   },
 ];

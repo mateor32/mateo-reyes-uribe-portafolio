@@ -1,8 +1,5 @@
 import type { KnowledgeItem } from "@/types";
 
-// TODO: reemplazar con tu información real.
-// Todos los datos de este archivo son de ejemplo.
-
 /**
  * Áreas de conocimiento que se muestran como grid de cards.
  *
@@ -12,45 +9,45 @@ import type { KnowledgeItem } from "@/types";
  */
 export const knowledgeItems: KnowledgeItem[] = [
   {
-    id: "frontend",
-    title: "Desarrollo Frontend",
+    id: "backend",
+    title: "Backend Development",
     description:
-      "Interfaces con React y Next.js, componentes reutilizables y estado predecible. TypeScript estricto de punta a punta.",
-    icon: "Code",
+      "REST APIs in Java and Spring Boot with a layered architecture — controller, service, repository — so responsibilities never leak into each other.",
+    icon: "Server",
   },
   {
-    id: "ui-design",
-    title: "Diseño de Interfaces",
+    id: "databases",
+    title: "Databases",
     description:
-      "Traducción de Figma a sistemas de diseño consistentes: tipografía, escala de espaciado, color y componentes documentados.",
-    icon: "Palette",
+      "PostgreSQL and MySQL, ER modelling and queries that hold referential integrity as the dataset grows.",
+    icon: "Database",
   },
   {
-    id: "responsive",
-    title: "Responsive & Mobile First",
+    id: "devops",
+    title: "Containers & DevOps",
     description:
-      "Maquetación que arranca en móvil y crece hacia escritorio, con layouts flexibles en CSS Grid y Flexbox.",
-    icon: "Smartphone",
+      "Docker for reproducible environments, Git for version control, and CI/CD pipelines that turn a deploy into a non-event.",
+    icon: "Container",
   },
   {
-    id: "accessibility",
-    title: "Accesibilidad Web",
+    id: "web",
+    title: "Web Development",
     description:
-      "Semántica HTML correcta, navegación por teclado, contraste suficiente y roles ARIA cuando de verdad hacen falta.",
-    icon: "Accessibility",
+      "Full-stack maintenance of production web apps, from the interface down to the endpoints that feed it.",
+    icon: "Globe",
   },
   {
-    id: "version-control",
-    title: "Control de Versiones",
+    id: "security",
+    title: "Application Security",
     description:
-      "Git a diario: ramas por funcionalidad, commits pequeños y legibles, revisiones de código y resolución de conflictos.",
-    icon: "GitBranch",
+      "JWT authentication, password hashing with bcrypt and OWASP practices: errors that say enough to debug and nothing more.",
+    icon: "ShieldCheck",
   },
   {
-    id: "performance",
-    title: "Rendimiento Web",
+    id: "agile",
+    title: "Agile Methodologies",
     description:
-      "Optimización de Core Web Vitals: carga diferida, tamaño de imágenes, reducción de JavaScript y medición antes de tocar nada.",
-    icon: "Gauge",
+      "Scrum and Kanban on real projects: prioritising a backlog, breaking work down and shipping in short cycles.",
+    icon: "Workflow",
   },
 ];

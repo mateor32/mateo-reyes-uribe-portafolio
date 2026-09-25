@@ -36,10 +36,48 @@ export const slideInLeft: Variants = {
  * CSS: Framer Motion anima desde JavaScript y se la salta, así que cada
  * componente elige estas variantes cuando `useReducedMotion()` da `true`.
  * El contenido aparece directamente en su sitio, sin desplazamiento.
+ *
+ * Fija explícitamente cada propiedad que tocan las demás variantes: en el
+ * primer render `useReducedMotion()` todavía no conoce la preferencia, así que
+ * el HTML sale con el estado `hidden` animado (desplazado, borroso) y, si
+ * estas variantes no lo deshacen, el contenido se queda así.
  */
+const RESTING = {
+  opacity: 1,
+  x: 0,
+  y: 0,
+  rotate: 0,
+  filter: "blur(0px)",
+  transition: { duration: 0 },
+};
+
 export const noMotion: Variants = {
-  hidden: { opacity: 1 },
-  visible: { opacity: 1 },
+  hidden: RESTING,
+  visible: RESTING,
+};
+
+/**
+ * Contenedor que escalona la entrada de sus hijos.
+ *
+ * Los hijos solo declaran `variants`, nunca `initial` ni `whileInView`: en
+ * Framer Motion el estado de animación se hereda por contexto y un hijo que
+ * define los suyos deja de escuchar al padre, con lo que el escalonado no
+ * llegaría a ocurrir.
+ */
+export function staggerContainer(
+  staggerChildren = 0.08,
+  delayChildren = 0,
+): Variants {
+  return {
+    hidden: {},
+    visible: { transition: { staggerChildren, delayChildren } },
+  };
+}
+
+/** Transición de entrada sin retardo, para los hijos de un contenedor escalonado. */
+export const ENTRANCE_TRANSITION: Transition = {
+  duration: 0.45,
+  ease: "easeOut",
 };
 
 /**

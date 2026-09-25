@@ -59,8 +59,10 @@ export function SocialIconLink({
       aria-label={name}
       title={name}
       className={cn(
-        "inline-flex shrink-0 items-center justify-center rounded-full bg-line text-ink-soft shadow-sm",
-        "transition-all duration-200 hover:scale-110 hover:bg-accent hover:text-white hover:shadow-md",
+        "inline-flex shrink-0 items-center justify-center rounded-full",
+        "border border-line bg-surface text-ink-mute shadow-sm",
+        "transition-all duration-200 ease-out",
+        "hover:-translate-y-0.5 hover:border-transparent hover:bg-gradient-to-br hover:from-accent hover:to-accent-deep hover:text-white hover:shadow-md",
         className,
       )}
       style={{ width: size, height: size }}

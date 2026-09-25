@@ -5,14 +5,14 @@ import Image from "next/image";
 import { SectionHeading } from "@/components/atoms/SectionHeading";
 import { Divider } from "@/components/atoms/Divider";
 import { Button } from "@/components/atoms/Button";
-import { EducationItem } from "@/components/molecules/EducationItem";
+import { ExperienceItem } from "@/components/molecules/ExperienceItem";
 import { ExtraSkillItem } from "@/components/molecules/ExtraSkillItem";
 import { InfoRow } from "@/components/molecules/InfoRow";
 import { KnowledgeCard } from "@/components/molecules/KnowledgeCard";
 import { Modal } from "@/components/molecules/Modal";
 import { PortfolioCard } from "@/components/molecules/PortfolioCard";
 import { SkillItem } from "@/components/molecules/SkillItem";
-import { educationItems } from "@/data/education";
+import { experienceItems } from "@/data/experience";
 import { knowledgeItems } from "@/data/knowledge";
 import { portfolioItems } from "@/data/portfolio";
 import {
@@ -49,11 +49,11 @@ export default function ProbeMolecules() {
           InfoRow
         </h2>
         <dl className="divide-y divide-line">
-          <InfoRow label="Edad" value={`${profile.age} años`} />
-          <InfoRow label="Residencia" value={profile.residence} />
+          <InfoRow label="Studies" value={profile.studies} />
+          <InfoRow label="Location" value={profile.residence} />
           <InfoRow
-            label="Freelance"
-            value={profile.status === "available" ? "Disponible" : "Ocupado"}
+            label="Open to"
+            value={profile.availability}
             valueColor={profile.status === "available" ? "success" : "default"}
           />
         </dl>
@@ -116,11 +116,11 @@ export default function ProbeMolecules() {
 
       <section className="space-y-4">
         <h2 className="text-sm font-semibold uppercase tracking-wide text-muted">
-          EducationItem
+          ExperienceItem
         </h2>
         <div className="space-y-8">
-          {educationItems.map((item, index) => (
-            <EducationItem
+          {experienceItems.map((item, index) => (
+            <ExperienceItem
               key={item.id}
               institution={item.institution}
               period={item.period}
@@ -179,7 +179,7 @@ export default function ProbeMolecules() {
       >
         {selectedProject && (
           <div className="space-y-4">
-            <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl bg-accent-soft">
+            <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-accent-soft">
               <Image
                 src={selectedProject.imageUrl}
                 alt={`Vista previa de ${selectedProject.title}`}

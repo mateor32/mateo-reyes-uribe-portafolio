@@ -1,4 +1,4 @@
-import { getLucideIcon } from "@/lib/icons";
+import { LUCIDE_ICONS } from "@/lib/icons";
 import { cn } from "@/lib/utils";
 import type { LucideIconName } from "@/types";
 
@@ -23,10 +23,20 @@ export interface IconBadgeProps {
   className?: string;
 }
 
+/**
+ * Fondo de cada tono.
+ *
+ * Los degradados son del propio accent —del tono suave al blanco— y añaden
+ * un borde interior claro. Es lo que convierte un cuadrado de color plano en
+ * una superficie: se lee como una pastilla con volumen y no como un relleno.
+ */
 const TONES: Record<IconBadgeTone, string> = {
-  accent: "bg-accent-soft text-accent",
-  neutral: "bg-line/60 text-ink-soft",
-  success: "bg-success/10 text-success",
+  accent:
+    "bg-gradient-to-br from-accent-soft to-surface text-accent ring-1 ring-inset ring-accent/10",
+  neutral:
+    "bg-gradient-to-br from-line-soft to-surface text-ink-mute ring-1 ring-inset ring-line",
+  success:
+    "bg-gradient-to-br from-success/10 to-surface text-success ring-1 ring-inset ring-success/20",
 };
 
 /**
@@ -44,8 +54,12 @@ export function IconBadge({
   iconSize,
   className,
 }: IconBadgeProps) {
-  const Icon = getLucideIcon(icon);
-  const resolvedIconSize = iconSize ?? Math.round(size * 0.45);
+  // Se lee directamente del registro y no a través de un accesor: la regla
+  // `react-hooks/static-components` trata el valor devuelto por una función
+  // como un componente recién creado en cada render y lo marca como error,
+  // aunque aquí siempre sea la misma referencia constante.
+  const Icon = LUCIDE_ICONS[icon];
+  const resolvedIconSize = iconSize ?? Math.round(size * 0.44);
 
   return (
     <span
@@ -57,7 +71,7 @@ export function IconBadge({
       )}
       style={{ width: size, height: size }}
     >
-      <Icon size={resolvedIconSize} aria-hidden="true" />
+      <Icon size={resolvedIconSize} strokeWidth={1.75} aria-hidden="true" />
     </span>
   );
 }
